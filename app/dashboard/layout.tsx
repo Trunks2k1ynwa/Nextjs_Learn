@@ -1,18 +1,17 @@
 import React from 'react'
-import Header from './header'
 
 
-const layout = ({children,
+const DashboardLayout = ({children,
 }: {
   children: React.ReactNode
 }) =>{
   return (
     <div>
-      <Header />
+      <header>Header DashboardLayout</header>
       {children}
-      <footer>Footer Dashboard</footer>
+      <footer>Footer DashboardLayout</footer>
     </div>
   )
 }
 
-export default layout
+export default DashboardLayout

@@ -1,16 +1,17 @@
 import React from 'react'
 
 
-const layout = ({children,
+const AnalyticsLayout = ({children,
 }: {
   children: React.ReactNode
 }) =>{
   return (
     <div>
+      <header>Header AnalyticsLayout</header>
       {children}
-      <footer>Footer ksadfjsklạd</footer>
+      <footer>Footer AnalyticsLayout</footer>
     </div>
   )
 }
 
-export default layout
+export default AnalyticsLayout

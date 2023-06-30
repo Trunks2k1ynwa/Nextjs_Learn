@@ -1,8 +1,5 @@
 ># **Pages and Layouts**
-<<<<<<< HEAD
-----
-=======
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # Pages
 - 1 page là UI duy nhất cho một route
 - Định nghĩa các page bằng việc tạo ra component từ file page.js
@@ -28,11 +25,8 @@ Folders:
 + settings : page.js
 ```
 - **layout.js** và **page.js** có thể được định nghĩa trong cùng 1 folder. Layout sẽ bọc Page
-<<<<<<< HEAD
 -----
-=======
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
 # Root Layout (bắt buộc)
 - Root layout được định nghĩa ở top-level của folder app và được áp dùng cho tất cả các route.
 - Root layout phải được định nghĩa html,body tags 
@@ -62,11 +56,7 @@ app/dashboard/layout.js áp dụng có route cụ thể là : nextjs.com/dashboa
 - Có 2 cách để navigate giữa các route:
 + Link component
 + useRouter
-<<<<<<< HEAD
-----
-=======
-
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+---
 # Link component
 - Link là 1 component trong React kề thừa lại từ tag a, nó hỗ trợ *prefetching* và client-side khi navigation giữa các route. Đấy là cách cơ bản nhất để di chuyển giữa các route
 ```js
@@ -116,11 +106,9 @@ export default function PostList({ posts }) {
 ### Scrolling to an Id
 - Mặc định hành vi của thẻ Link sẽ tự động scroll lên phần đầu của thành phần route được thay đổi.
 - Khi định nghĩa id bên trong href, nó sẽ scroll đến địa chỉ id cụ thể, cũng tương tự như tag a
-<<<<<<< HEAD
------
-=======
+----
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # useRouter hook
 - Hook này cho phép bạn tự động thay đổi routes bên trong component phía client
 ```js
@@ -139,11 +127,9 @@ export default function Page() {
 }
 ```
 - useRouter cung cấp phương thức push(),refresh(), vv/
-<<<<<<< HEAD
-----
-=======
+---
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # Navigation hoạt động như thế nào
 - 1 Route được chuyển tiếp nếu bắt đầu bằng Link hoặc router.push()
 - Router sẽ cập nhật địa chỉ URL trên thanh bar của trình duyệt
@@ -151,41 +137,32 @@ export default function Page() {
 - Nếu điều kiện của chuyển hướng mềm được tìm thấy, router sẽ lấy các phân đoạn mới từ bộ nhớ catch hơn là trên server.Nếu không, Router thực hiện chuyển hướng cứng và lấy dữ liệu phía Server component payload từ server
 - Nếu được khởi tạo, Loading UI được cho xem từ server trong khi payload đang được tải
 - Router sử dụng bộ nhớ đệm và làm mới payload để render ra các thành phần mới cho client
-<<<<<<< HEAD
-----
-=======
+---
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # Client-side Caching of Rendered Server Components
 - Khi người dùng điều hướng xung quanh ứng dụng, bộ định tuyến sẽ lưu trữ tải trọng của các phân đoạn đã tìm nạp trước đó và các phân đoạn đã tìm nạp trước trong bộ đệm.
 
 - Điều này có nghĩa là, trong một số trường hợp nhất định, bộ định tuyến có thể sử dụng lại bộ đệm thay vì đưa ra yêu cầu mới cho máy chủ. Điều này cải thiện hiệu suất bằng cách tránh tìm nạp lại dữ liệu và kết xuất lại các thành phần không cần thiết.
-<<<<<<< HEAD
-----
-=======
+---
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # Prefetching : Tìm nạp trước
 - Là cách để tải trước 1 route trong nền phía sau trước route đó hiển thị.
 - Kết quả của việc tìm nạp trước của route đó sẽ được thêm vào bộ nhớ đệm phía client
 - Điều này làm cho việc điều hướng gần như ngay lập tức
 - Mặc định, routes được prefetched trước khi hiển thị trong khung nhìn khi sử dụng Link. Điều này có thể xảy ra khi trang được tải lần đầu hoặc khi scroll đến viewPort
 - Route cx có thể auto prefetched bằng việc sử dụng phương thức prefetch của useRouter
-<<<<<<< HEAD
-----
-=======
+---
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # Static and Dynamic Routes :
 - Route là tĩnh(static): Tất cả payload của component phía server sẽ được tìm nạp trước
 - Route là động (dynamic) : payload của các layout cho đến file loading.js đầu tiên sẽ được tìm nạp trước. Giúp giảm chi phí tìm nạp, chỉ tải trạng thái tức thời cho các dynamic routes
 - **Prefeching chi được kích hoạt ở môi trường product**
 - Prefetching can be disabled by passing prefetch={false} to Link
-<<<<<<< HEAD
------
-=======
+----
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
 # Soft Navigation
 - Khi điều hướng, bộ đệm cho các phân đoạn đã thay đổi được sử dụng lại (nếu nó tồn tại) và không có yêu cầu mới nào được gửi tới máy chủ để lấy dữ liệu.
 - Nextjs sử dụng soft_navigation nếu route đang kích hoạt đã được tìm nạp trước hoặc không chứa các thành phần dynamic hoặc có cùng tham số dynamic với route hiện tại
@@ -195,17 +172,14 @@ vd: route chứa [id],/dashboard/[id]/* là dynamic
 /dashboard/team-red -> /dashboard/team-blue :hard navigation.
 
 ```
-<<<<<<< HEAD
 ----
 # Hard Navigation
 - Khi route thay đổi, bộ nhớ đệm bị vô hiệu hóa và server sẽ tải lại dữ liệu và hiển thị lại các phân đoạn thay đổi
-----
-=======
-
+---
 # Hard Navigation
 - Khi route thay đổi, bộ nhớ đệm bị vô hiệu hóa và server sẽ tải lại dữ liệu và hiển thị lại các phân đoạn thay đổi
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+
 # Back/Forward Navigation
 - Đây là hành vi soft-navigation
 - Bộ nhớ đệm phía client được sử dụng lại và việc navigate được thực hiện gần như ngay lập tức
@@ -213,10 +187,10 @@ vd: route chứa [id],/dashboard/[id]/* là dynamic
 # Focus and Scroll Management
 - Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
 
-<<<<<<< HEAD
-=======
 # Focus and Scroll Management
 - Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
 
->>>>>>> 98860a9acbc9770dc5ad64076660b00666075665
+# Focus and Scroll Management
+- Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
+
 ># **Route Groups**

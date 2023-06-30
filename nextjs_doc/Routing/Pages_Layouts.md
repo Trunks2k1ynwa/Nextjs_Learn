@@ -108,7 +108,6 @@ export default function PostList({ posts }) {
 - Khi định nghĩa id bên trong href, nó sẽ scroll đến địa chỉ id cụ thể, cũng tương tự như tag a
 ----
 
-
 # useRouter hook
 - Hook này cho phép bạn tự động thay đổi routes bên trong component phía client
 ```js
@@ -129,7 +128,6 @@ export default function Page() {
 - useRouter cung cấp phương thức push(),refresh(), vv/
 ---
 
-
 # Navigation hoạt động như thế nào
 - 1 Route được chuyển tiếp nếu bắt đầu bằng Link hoặc router.push()
 - Router sẽ cập nhật địa chỉ URL trên thanh bar của trình duyệt
@@ -138,7 +136,6 @@ export default function Page() {
 - Nếu được khởi tạo, Loading UI được cho xem từ server trong khi payload đang được tải
 - Router sử dụng bộ nhớ đệm và làm mới payload để render ra các thành phần mới cho client
 ---
-
 
 # Client-side Caching of Rendered Server Components
 - Khi người dùng điều hướng xung quanh ứng dụng, bộ định tuyến sẽ lưu trữ tải trọng của các phân đoạn đã tìm nạp trước đó và các phân đoạn đã tìm nạp trước trong bộ đệm.
@@ -184,12 +181,6 @@ vd: route chứa [id],/dashboard/[id]/* là dynamic
 - Đây là hành vi soft-navigation
 - Bộ nhớ đệm phía client được sử dụng lại và việc navigate được thực hiện gần như ngay lập tức
 ----
-# Focus and Scroll Management
-- Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
-
-# Focus and Scroll Management
-- Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
-
 # Focus and Scroll Management
 - Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
 

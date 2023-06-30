@@ -1,15 +1,47 @@
+'use client'
+import Link from 'next/link'
 import React from 'react'
-
+import { usePathname } from 'next/navigation'
 
 const DashboardLayout = ({children,
 }: {
   children: React.ReactNode
-}) =>{
+  }) => {
+  console.log('layout dashboard')
+  const menu = [
+    {
+      name: 'Home',
+      href:'home'
+    },
+    {
+      name: 'About',
+      href:'about'
+    },
+    {
+      name: 'Contact',
+      href:'contact'
+    },
+  ]
+    const pathname = usePathname()
   return (
     <div>
-      <header>Header DashboardLayout</header>
+      <header className='flex justify-between bg-black p-4 text-white'>
+        <div>Header DashboardLayout</div>
+        {menu.map(link => {
+        const isActive = pathname.includes(link.href) 
+        return (
+          <Link
+            className={isActive ? 'text-blue-400 font-bold' : 'text-green-600'}
+            href={link.href}
+            key={link.name}
+          >
+            {link.name}
+          </Link>
+        )
+      })}
+      </header>
       {children}
-      <footer>Footer DashboardLayout</footer>
+      <footer className='bg-black p-4 text-white'>Footer DashboardLayout</footer>
     </div>
   )
 }

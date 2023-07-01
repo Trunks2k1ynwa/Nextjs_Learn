@@ -43,3 +43,86 @@ export default function Posts() {
 - Lợi ích của việc dùng Suspense:
 1. Kết xuất liên tục HTML từ máy chủ đến máy khách.
 2. Ưu tiên những cpn để tương tác trước dựa trên hành vi người dùng
+
+># **Error Handling**
+> Theo quy ước thì file error.js cho phép bạn xử lý các lỗi ngay lập tức khi có component trong file route nested bị lỗi
+> Tự động bao thành phần route và các thành phần con bên trong bằng React Error Boundary
+> Tạo giao diện người dùng lỗi phù hợp với các phân đoạn cụ thể bằng cách sử dụng phân cấp hệ thống tệp để điều chỉnh mức độ chi tiết.
+> Cô lập lỗi cho các phân đoạn bị ảnh hưởng trong khi vẫn giữ cho phần còn lại của ứng dụng hoạt động.
+> Thêm chức năng để cố gắng khôi phục lỗi mà không cần tải lại toàn bộ trang.
+
+- Tạo giao diện lỗi bằng file error.js bên trong thành phần route và export component
+```js
+'use client' // Error components must be Client Components
+ 
+import { useEffect } from 'react'
+ 
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error
+  reset: () => void
+}) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error)
+  }, [error])
+ 
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button
+        onClick={
+          // Attempt to recover by trying to re-render the segment
+          () => reset()
+        }
+      >
+        Try again
+      </button>
+    </div>
+  )
+}
+```
+---
+# Error.js hoạt động như thế nào
+- error.js tự động tạo ra React error boundary bọc các thành phần con hoặc page.js component
+- component trong file error.js được export ra và sử dụng vào fallback của component ErrorBoundary
+- Khi UI lỗi hiển thị, layout ở phía trên sẽ vẫn duy trị trạng thái của chúng và duy trì tính tương tác, đồng thời thành phần lỗi có thể thực hiện chức năng khôi phục
+--- 
+# Recovering From Errors
+- method reset() để nhắc nhở user khôi phục từ lỗi. Khi thực thi, fn sẽ cố gắng render ra nội dung lỗi. Nếu thành công, error sẽ được thay thế bằng kết quả của lần render lại
+```js
+'use client'
+ 
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error
+  reset: () => void
+}) {
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  )
+}
+```
+--- 
+# Nested Routes
+- erorr.js sẽ handle lỗi của file page.js khi 2 file cùng cấp bậc
+- Nếu có routes nested bên trong gặp lỗi, thì error.js ở phần layout ngoài cũng sẽ xử lý lỗi khi có route con bên trong gặp lỗi
+- Độ ưu tiên của file erorr.js sẽ handle được route or file page.js gặp lỗi gần nhất
+
+---
+# Handling Errors in Layouts
+- error.js không thể handle lỗi cho những file ở trên nó như layout.js, template.js
+- Để xử lý lỗi cho root layout hay template, sử dụng file global-error.js
+---
+# Handling Errors in Root Layouts
+- file error.js trong folder root (app) sẽ không handle lỗi bên trong app/layout, template
+- Để xử lý lỗi bên trong root component , sử dụng global-error.js ở trong thư mục app
+- global-error.js bọc toàn bộ ứng dụng, vì thế nó phải được định nghĩa chứa html, body
+

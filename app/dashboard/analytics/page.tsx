@@ -1,4 +1,5 @@
 import React from 'react'
+import Content from './content'
 
 type Props = {}
 export const metadata = {
@@ -7,7 +8,10 @@ export const metadata = {
 }
 const Home = (props: Props) => {
   return (
-    <div>Home Analytics</div>
+    <div>
+      <h1>Home Analytics</h1>
+      <Content />
+    </div>
   )
 }
 

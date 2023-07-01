@@ -2,10 +2,11 @@ import React from 'react'
 
 type Props = {}
 
-const content = (props: Props) => {
+const Content = (props: Props) => {
+  const data = {name:'trung'}
   return (
-    <div>content</div>
+    <div>Content { data1.name1}</div>
   )
 }
 
-export default content
+export default Content

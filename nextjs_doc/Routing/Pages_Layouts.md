@@ -185,3 +185,38 @@ vd: route chứa [id],/dashboard/[id]/* là dynamic
 - Theo mặc định, Next.js sẽ đặt tiêu điểm và cuộn để xem phân đoạn đã thay đổi khi điều hướng.
 
 ># **Route Groups**
+- Trong app folder, các folder lồng nhau được ánh xạ tới các route tương ứng với URL_Path
+- Tuy nhiện, bạn có thể xác định một folder như một nhóm cac route chứ không phải một route nhằm ngăn chặn folder đó không thuộc đường dẫn của 1 route
+- Điều này cho phép bạn sắp xếp các đoạn tuyến đường và tệp dự án thành các nhóm hợp lý mà không ảnh hưởng đến cấu trúc đường dẫn URL.
+>Nhóm các route thường sử dụng khi:
+- Tổ chức các route theo nhóm
+- Cho phép lồng nhiều layout trong cùng 1 cấp bậc của phân đoạn route :
+1. Tạo nhiều layout lồng nhau trong cùng 1 thành phần, bao gồm cả nhiều root layout
+2. Thêm các layout và các route con ở trong thành phần chung
+---
+# Convention
+- Một nhóm các route có thể được xác định bằng đặt tên thư mục trong dấu ngoặc đơn : **(folderName)**
+----
+# Examples
+## Organize routes without affecting the URL path
+- Để sắp xếp các tuyến đường mà không ảnh hưởng đến URL, hãy tạo một nhóm để giữ các tuyến đường liên quan lại với nhau. Các thư mục trong ngoặc đơn sẽ bị bỏ qua khỏi URL (ví dụ: (Marketing) hoặc (Shop)).
+- Khi nhóm các route như thế này ta truy cập thẳng đến các route bên trong group mà không cần qua các route bên ngoài như folder(route thông thường)
+- Mỗi route_group tương ứng với root-folder mới
+- vd: 
+- app: layout.js, (marketing),(shop)
+- (marketing): about(page.js), blog(page.js)
+- (shop) : account(page.js)
+```js
+nextjs.com/about -> page.js(about)
+nextjs.com/account -> page.js(account)
+```
+- Dù các routes bên trong (marketing),(shop) có cùng URL phân cấp nhưng vẫn có thể tạo các layout riêng cho mỗi group bằng cách thêm layou.js bên trong folder đó
+
+## Opting specific segments into a layout : Xác định các thành phần bên trong layout
+- Để dùng chung layout thì di chuyển các route vào trong 1 group, các route bên ngoài group đó không chia sẻ layout này
+## Creating multiple root layouts
+- Để tạo nhiều root-layout, ta cần xóa file layout ở trên cùng của app(folder
+)
+- Thêm các file layou.jd vào mỗi route group
+- Điều này rất hữu ích về việc chia ứng dụng thành các phần hoàn thiện UI 
+- Html và body tag cần được thêm vào mỗi root layout

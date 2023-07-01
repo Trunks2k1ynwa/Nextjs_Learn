@@ -7,31 +7,38 @@ const DashboardLayout = ({children,
 }: {
   children: React.ReactNode
   }) => {
-  console.log('layout dashboard')
   const menu = [
     {
-      name: 'Home',
-      href:'home'
+      name: 'Home Dashboard',
+      href:'/dashboard'
     },
     {
-      name: 'About',
-      href:'about'
+      name: 'About Dashboard',
+      href:'/dashboard/about'
     },
     {
-      name: 'Contact',
-      href:'contact'
+      name: 'Contact Dashboard',
+      href:'/dashboard/contact'
+    },
+    {
+      name: 'Analytics Dashboard',
+      href:'/dashboard/analytics'
+    },
+    {
+      name: 'Settings Dashboard',
+      href:'/dashboard/settings'
     },
   ]
-    const pathname = usePathname()
+  const pathname = usePathname()
   return (
-    <div>
-      <header className='flex justify-between bg-black p-4 text-white'>
-        <div>Header DashboardLayout</div>
+    <div className='my-10 bg-indigo-200 flex'>
+      <header className='flex flex-col justify-between bg-indigo-400 text-white'>
+        <nav className='flex flex-col'>
         {menu.map(link => {
-        const isActive = pathname.includes(link.href) 
+          const isActive = pathname.endsWith(link.href) 
         return (
           <Link
-            className={isActive ? 'text-blue-400 font-bold' : 'text-green-600'}
+            className={isActive ? 'text-indigo-400 bg-indigo-200 font-bold p-2' : 'text-black p-2'}
             href={link.href}
             key={link.name}
           >
@@ -39,9 +46,9 @@ const DashboardLayout = ({children,
           </Link>
         )
       })}
+        </nav>
       </header>
-      {children}
-      <footer className='bg-black p-4 text-white'>Footer DashboardLayout</footer>
+      {children} 
     </div>
   )
 }

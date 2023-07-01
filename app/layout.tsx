@@ -1,5 +1,8 @@
+'use client'
+import Link from 'next/link'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { usePathname } from 'next/navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,10 +16,50 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
   }) {
-  console.log('layout root')
+    const menu = [
+    {
+      name: 'Home Root',
+      href:'/'
+    },
+    {
+      name: 'Dashboard',
+      href:'/dashboard'
+    },
+    {
+      name: 'Product',
+      href:'/product'
+    },
+    {
+      name: 'Shop',
+      href:'/shop'
+    },
+    {
+      name: 'Optional',
+      href:'/optional'
+    },
+  ]
+    const pathname = usePathname()
   return (
     <html lang="en">
-      <body className={inter.className}>{children}
+      <body className={inter.className}> <header className='flex justify-between bg-black p-4 text-white'>
+        <Link href='/'>Header RootLayout</Link>
+        <nav className='flex gap-x-5'>
+          {menu.map(link => {
+    const isActive = link.href.length>2 ? pathname.includes(link.href) :(pathname === link.href)
+        return (
+          <Link
+            className={isActive ? 'text-blue-400 font-bold' : 'text-green-600'}
+            href={link.href}
+            key={link.name}
+          >
+            {link.name}
+          </Link>
+        )
+      })}
+        </nav>
+      </header>
+      {children}
+      <footer className='bg-black p-4 text-white'>Footer RootLayout</footer>
       </body>
     </html>
   )

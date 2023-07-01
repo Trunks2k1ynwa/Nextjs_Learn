@@ -70,3 +70,5 @@ Vd: app/shop/[[...slug]]/page.js sẽ match với:
 | app/shop/[[...slug]]/page.js|	/shop/a/b/c	|{ slug: ['a', 'b', 'c'] }
 
 app/[item1Id]/[item2Id]/page.js -> app([item1Id]([item2Id](page.js)))
+
+# brach routing in github used to store every about Routing

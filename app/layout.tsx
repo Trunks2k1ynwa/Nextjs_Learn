@@ -37,6 +37,10 @@ export default function RootLayout({
       name: 'Optional',
       href:'/optional'
     },
+    {
+      name: 'Parallel',
+      href:'/parallel_test'
+    },
   ]
     const pathname = usePathname()
   return (

@@ -1,4 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {}
-
-module.exports = nextConfig
+/**
+ * @type {import('next').NextConfig}
+ */
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ['pbs.twimg.com'],
+  },
+  experimental: {
+    appDir: true,
+  },
+};

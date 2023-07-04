@@ -8,24 +8,25 @@ const page = (props: Props) => {
     {
       name: 'HTML',
       id: '24214',
-      description: 'Product HTML'
+      description: 'Product HTML',
     },
     {
       name: 'NodeJS',
       id: '242983',
-      description: 'Product NodeJS'
+      description: 'Product NodeJS',
     },
     {
       name: 'ReactJS',
       id: '24sfaff',
-      description: 'Product ReactJS'
+      description: 'Product ReactJS',
     },
   ]
   return (
     <div className='flex gap-5 justify-between'>
       {
         listProudct.map(product => (
-      <Link href={`/product/${product.id}`} className='bg-green-400 p-3 rounded-md cursor-pointer' key={product.name}>
+          <Link href={`/product/${product.id}`} className='bg-green-400 p-3 rounded-md cursor-pointer' key={product.name}>
+            
             <h1 >{product.name}</h1>
             <p className='text-white'>{product.description}</p>
       </Link>

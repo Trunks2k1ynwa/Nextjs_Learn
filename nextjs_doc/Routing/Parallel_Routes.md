@@ -35,8 +35,17 @@ export default function Layout(props: {
 
 --- 
 # Unmatched Routes
-- Mặc định, nội dung trong slot được render khi trùng vời URL hiện tại nếu slot đó nằm trong layout của folder định nghĩa route của url hiện tại
-- Trong trường hợp slot không khớp, nội dung mà Nextjs render sẽ khác nhau dựa trên kỹ thuật định tuyến và cấu trúc thư mục
+- Mặc định, nội dung của slot khi được hiển thị sẽ trùng với URL hiện tại
+- Trong trường hợp URL khác URL hiện tại, slot không được hiển thị thì sẽ gặp lỗi, lúc này cần dùng file default.js như 1 fallback 
+- Khi gặp lỗi, dùng file error.js ở foldẻ chứa slot để show lỗi 
+Vd:
+- /feed -> app/feed/layout.js
+- /feed/@modal/page.js 
+Nếu page.js hiển thị trong layout khi url :/feed
+-> slot @modal trùng với url : /feed
+-> thay đổi url /feed/test thì sẽ không hiển thị slot @modal
+- Lúc này sẽ gặp lỗi vì layout chứa props có slot @modal nhưng lại không được hiện thị
+- Khi này ta phải thêm file default.js vào @modal để fix
 
 ## default.js
 - Dùng để hiển thị dưới dạng dự phòng khi nextjs không thể khôi phục trạng thái active của Slot dựa trên URL hiện tại
@@ -159,3 +168,29 @@ export default function Layout({ params, dashboard, login }) {
 }
 ```
 ![Alt text](image-7.png)
+
+># **Intercepting Routes**
+- Cho phép load 1 route trong layout hiện tại mà vẫn giữa được context của page hiện tại
+- Ưu ích khi bạn muốn chặn 1 route hiện tại để hiển thị 1 route khác mà không làm ảnh hướng đến layout route hiện tại 
+Vd : /feed hiển thị danh sách các ảnh của feed
+- click vào 1 ảnh hiện modal chứa ảnh đó với url /feed/photo/32423
+- Tuy nhiên, khi navigate đến url photo bằng click sẽ refresh page, toàn bộ photo page render thay vì modal
+- *Chặn routes mặc định để hiển thị UI khác từ route mặc định đó, f5 lại trang thì sẽ hiển thị UI route mặc định*
+Vd : /feed -> UI nhiều ảnh
+Click 1 ảnh -> /feed/photo/24221 -> show UI ảnh đó
+- Khi bạn muốn /feed/photo/24221 -> show UI ảnh đó + somthing
+- Sử dụng Intercepting route để chặn route mặc định 
+- Bằng việc sử dụng (.)folder,(..)folder.. vv
+![Alt text](image-8.png)
+---
+# Convention
+- Intercepting routes có thể định nghĩa với (...), cũng tương tư như đường dẫn tuyệt đoối ../ nhưng dành cho thành phần route
+1. (.) match với những thành phần cùng level
+2. (..) match với những thành phần level phía trên
+3. (..)(..) match với những thành phần level phía dưới
+4. (...) match với những thành phần từ root app
+Ví dụ
+app/@modal/(.)photo/[id]/page.tsx
+app/photo/[id]/page.tsx
+Url: domain/photo/2231 
+Ta thấy lúc này 

@@ -1,7 +1,6 @@
 'use client'
 import Link from "next/link"
 import { useParams } from "next/navigation"
-import ProductPage from "../page"
 
 export default function Page({ params }: { params: { productId: string } }) {
   const pathName = useParams()

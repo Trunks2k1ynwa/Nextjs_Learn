@@ -1,7 +1,7 @@
 'use client';
-import Modal from '@/app/components/atoms/Modal';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+import Modal from '~/atoms/Modal';
 
 const SignUp = () => {
   const router = useRouter();

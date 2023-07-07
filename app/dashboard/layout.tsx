@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { usePathname } from 'next/navigation';
-import { bodoni_moda } from '@/utils/font';
+// import { bodoni_moda } from '@/utils/font';
 import { classNames } from '@/utils/common';
 import styles from '@/styles/dashboard.module.scss';
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
@@ -34,7 +34,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       className={classNames(
         'my-10 flex',
         styles.dashboard,
-        bodoni_moda.className,
+        // bodoni_moda.className,
       )}
     >
       <header className='flex flex-col justify-between  text-white'>

@@ -1,3 +1,3 @@
 export default function Default() {
-  return <div>Default parallel_test</div>
+  return <div>Default parallel_test</div>;
 }

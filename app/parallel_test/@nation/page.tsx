@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
+import Image from 'next/image';
 import React from 'react';
 
 export default async function Page() {
@@ -11,7 +10,7 @@ export default async function Page() {
         className='flex flex-col rounded-xl bg-white border border-gray-100 p-5'
       >
         <div className='relative flex-shrink-0 mb-5 h-[250px]'>
-          <img
+          <Image
             src='https://bit.ly/3zzCTUT'
             alt=''
             className='object-cover w-full h-full rounded-lg'

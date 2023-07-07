@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import React from 'react';
 
 const Page = () => {
-  const error = { name: 'test error' };
   return (
     <div className='flex-1'>
       <h1>File page.js in folder /parallel/@team/vietnam/page.js</h1>

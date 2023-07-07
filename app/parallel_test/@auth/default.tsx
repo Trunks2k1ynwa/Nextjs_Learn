@@ -1,3 +1,3 @@
 export default function Default() {
-  return <div>Default auth</div>
+  return <div>Default auth</div>;
 }

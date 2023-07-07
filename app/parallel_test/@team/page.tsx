@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import Link from 'next/link';
 import React from 'react';
 
 export default async function Page() {
-  const error = { name: 'test error' };
   await new Promise((resolve) => setTimeout(resolve, 4000));
   return (
     <div className='flex-1'>

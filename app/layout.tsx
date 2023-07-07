@@ -1,4 +1,3 @@
-'use client';
 import Link from 'next/link';
 import './global.scss';
 import { Advent_Pro } from 'next/font/google';

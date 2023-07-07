@@ -1,4 +1,3 @@
-'use client';
 import Button from '@/components/atoms/Button';
 import React from 'react';
 

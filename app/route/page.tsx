@@ -1,11 +1,5 @@
+const page = () => {
+  return <div>Route</div>;
+};
 
-
-type Props = {}
-
-const page = (props: Props) => {
-  return (
-    <div>Route</div>
-  )
-}
-
-export default page
+export default page;

@@ -1,12 +1,12 @@
-import Loading from '@/app/components/autom/Loading'
-import React from 'react'
+import Loading from '@/components/atoms/Loading';
+import React from 'react';
 
-type Props = {}
-
-const LoadingUI = (props: Props) => {
+const LoadingUI = () => {
   return (
-    <div><Loading /></div>
-  )
-}
+    <div>
+      <Loading />
+    </div>
+  );
+};
 
-export default LoadingUI
+export default LoadingUI;

@@ -1,0 +1,47 @@
+// mixin
+//Declare : @mixin nameMixin(){}
+//Use: @include nameMixin();
+
+@mixin square($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+@mixin absoluteCenter($direction: "left") {
+  position: absolute;
+  @if $direction == "left" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == "top" {
+    left: 50%;
+    transform: translateY(-50%);
+  }
+  @if $direction == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@mixin flexCenter($type: "both") {
+  display: flex;
+  @if $type == "main" {
+    justify-content: center;
+  }
+  @if $type == "cross" {
+    align-items: center;
+  }
+  @if $type == "both" {
+    align-items: center;
+    justify-content: center;
+  }
+}
+@mixin maxWidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+@mixin minWidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}

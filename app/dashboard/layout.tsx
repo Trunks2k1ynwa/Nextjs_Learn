@@ -1,56 +1,65 @@
-'use client'
-import Link from 'next/link'
-import React from 'react'
-import { usePathname } from 'next/navigation'
-
-const DashboardLayout = ({children,
-}: {
-  children: React.ReactNode
-  }) => {
+'use client';
+import Link from 'next/link';
+import React from 'react';
+import { usePathname } from 'next/navigation';
+import { bodoni_moda } from '@/utils/font';
+import { classNames } from '@/utils/common';
+import styles from '@/styles/dashboard.module.scss';
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const menu = [
     {
       name: 'Home Dashboard',
-      href:'/dashboard'
+      href: '/dashboard',
     },
     {
       name: 'About Dashboard',
-      href:'/dashboard/about'
+      href: '/dashboard/about',
     },
     {
       name: 'Contact Dashboard',
-      href:'/dashboard/contact'
+      href: '/dashboard/contact',
     },
     {
       name: 'Analytics Dashboard',
-      href:'/dashboard/analytics'
+      href: '/dashboard/analytics',
     },
     {
       name: 'Settings Dashboard',
-      href:'/dashboard/settings'
+      href: '/dashboard/settings',
     },
-  ]
-  const pathname = usePathname()
+  ];
+  const pathname = usePathname();
   return (
-    <div className='my-10 bg-indigo-200 flex'>
-      <header className='flex flex-col justify-between bg-indigo-400 text-white'>
+    <div
+      className={classNames(
+        'my-10 flex',
+        styles.dashboard,
+        bodoni_moda.className,
+      )}
+    >
+      <header className='flex flex-col justify-between  text-white'>
         <nav className='flex flex-col'>
-        {menu.map(link => {
-          const isActive = pathname.endsWith(link.href) 
-        return (
-          <Link
-            className={isActive ? 'text-indigo-400 bg-indigo-200 font-bold p-2' : 'text-black p-2'}
-            href={link.href}
-            key={link.name}
-          >
-            {link.name}
-          </Link>
-        )
-      })}
+          {menu.map((link) => {
+            const isActive = pathname.endsWith(link.href);
+            return (
+              <Link
+                className={
+                  isActive
+                    ? 'text-black bg-white font-bold p-2'
+                    : 'text-white p-2 bg-black'
+                }
+                href={link.href}
+                key={link.name}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </nav>
       </header>
-      {children} 
+      {children}
     </div>
-  )
-}
+  );
+};
 
-export default DashboardLayout
+export default DashboardLayout;

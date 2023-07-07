@@ -1,3 +1,7 @@
+@import "/styles/reset";
+@import "/styles/variables";
+@import "/styles/mixins";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -15,5 +19,6 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
-
+.test{
+  background-color: $primary;
+}

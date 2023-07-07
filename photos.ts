@@ -1,10 +1,10 @@
 export type Photo = {
-  id: string
-  name: string
-  href: string
-  username: string
-  imageSrc: string
-}
+  id: string;
+  name: string;
+  href: string;
+  username: string;
+  imageSrc: string;
+};
 
 const photos: Photo[] = [
   {
@@ -62,6 +62,62 @@ const photos: Photo[] = [
     href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
     username: '@matiasbaldanza',
     imageSrc: 'https://pbs.twimg.com/media/E374pyaWEAMCT2R?format=jpg',
+  },
+  {
+    id: '10',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FKDhLOaWUAksm0e?format=jpg',
+  },
+  {
+    id: '11',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FKbvS9aXwAIOKYt?format=jpg',
+  },
+  {
+    id: '12',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FMcsQzBVUAQIyx9?format=jpg',
+  },
+  {
+    id: '13',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FJiYEN_VgAMGD3B?format=jpg',
+  },
+  {
+    id: '14',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FJYaEI0XIAEbYHa?format=jpg',
+  },
+  {
+    id: '15',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FI9_LDSXEAEE2SH?format=jpg',
+  },
+  {
+    id: '16',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FI9_LDSXEAEE2SH?format=jpg',
+  },
+  {
+    id: '17',
+    name: 'Matias Baldanza1',
+    href: 'https://twitter.com/matiasbaldanza/status/1404834163203715073',
+    username: '@matiasbaldanza',
+    imageSrc: 'https://pbs.twimg.com/media/FIm3t4DVkAMFBLh?format=jpg',
   },
 ];
 

@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+li {
+  list-style: none;
+  text-transform: capitalize;
+}
+// Width và height: sử dụng đơn vị % để thiết lập kích thước phần tử dựa trên kích thước của phần tử cha. Nếu không thể sử dụng %, ta có thể sử dụng các đơn vị như vw và vh để thiết lập kích thước dựa trên chiều rộng và chiều cao của viewport.
+
+// Padding và margin: sử dụng % hoặc các đơn vị linh hoạt như em hoặc rem để thiết lập kích thước padding và margin. Điều này giúp phần tử co giãn và thích ứng với các kích thước khác nhau.
+
+// Border: sử dụng các đơn vị như px hoặc em để thiết lập độ dày của border.
+
+// Font-size: sử dụng các đơn vị như em hoặc rem để thiết lập kích thước font. Sử dụng đơn vị em hoặc rem giúp phần tử thích ứng với các kích thước khác nhau, bởi vì chúng được tính toán dựa trên kích thước của phần tử cha.

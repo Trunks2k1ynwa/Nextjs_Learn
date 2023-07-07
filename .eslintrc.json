@@ -1,3 +1,40 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["next", "prettier"],
+  "rules": {
+    "react/prop-types":1,
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "semi": ["error", "always"],
+    "quotes": ["error", "single"],
+    "indent": ["error", 2, { "MemberExpression": "off", "SwitchCase": 1 }],
+    "jsx-quotes": ["error", "prefer-single"],
+    "no-use-before-define": ["off"],
+    "no-control-regex": 0,
+    "no-console": 1,
+    "no-unused-vars": 2,
+    "no-param-reassign": ["off"],
+    "linebreak-style": 0,
+    "object-curly-newline": ["off"],
+    "eqeqeq": ["error", "always"],
+    "function-paren-newline": ["off"],
+    "implicit-arrow-linebreak": ["off"],
+    "operator-linebreak": ["off"],
+    "prefer-const": ["off"],
+    "jsx-a11y/label-has-associated-control": ["off"],
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx", "tsx"] }],
+    "react/jsx-one-expression-per-line": ["off"],
+    // "react/function-component-definition": [
+    //   2,
+    //   {
+    //     "namedComponents": ["arrow-function"],
+    //     "unnamedComponents": ["arrow-function"]
+    //   }
+    // ],
+    "import/extensions": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": ["off"],
+    "import/no-mutable-exports": ["off"]
+  }
 }

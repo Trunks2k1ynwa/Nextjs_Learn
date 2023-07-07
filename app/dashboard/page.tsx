@@ -1,9 +1,8 @@
-import Link from 'next/link'
-import React from 'react'
+'use client';
+import Link from 'next/link';
+import React from 'react';
 
-type Props = {}
-
-const page = (props: Props) => {
+const page = () => {
   const listProudct = [
     {
       name: 'HTML',
@@ -20,20 +19,21 @@ const page = (props: Props) => {
       id: '24sfaff',
       description: 'Product ReactJS',
     },
-  ]
+  ];
   return (
     <div className='flex gap-5 justify-between'>
-      {
-        listProudct.map(product => (
-          <Link href={`/product/${product.id}`} className='bg-green-400 p-3 rounded-md cursor-pointer' key={product.name}>
-            
-            <h1 >{product.name}</h1>
-            <p className='text-white'>{product.description}</p>
-      </Link>
-        ))
-      }
+      {listProudct.map((product) => (
+        <Link
+          href={`/product/${product.id}`}
+          className='bg-green-400 p-3 rounded-md cursor-pointer'
+          key={product.name}
+        >
+          <h1>{product.name}</h1>
+          <p className='text-white'>{product.description}</p>
+        </Link>
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

@@ -10,11 +10,16 @@ const ShopLayout = ({ children }: { children: React.ReactNode }) => {
       href: 'account',
     },
     {
+      name: 'SignIn',
+      href: 'signin',
+    },
+    {
       name: 'Cart',
       href: 'cart',
     },
   ];
   const pathname = usePathname();
+
   return (
     <div>
       <header className='flex justify-between bg-black p-4 text-white'>
@@ -33,6 +38,7 @@ const ShopLayout = ({ children }: { children: React.ReactNode }) => {
             </Link>
           );
         })}
+        <button>Log out</button>
       </header>
       {children}
       <footer className='bg-black p-4 text-white'>Footer ShopLayout</footer>

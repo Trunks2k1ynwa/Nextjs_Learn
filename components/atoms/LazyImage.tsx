@@ -66,7 +66,6 @@ export default function LazyImage({
         src={src}
         height={height}
         width={width}
-        loading='lazy'
         className={classNames(
           'duration-700 ease-in-out',
           className,
@@ -74,7 +73,7 @@ export default function LazyImage({
             ? 'scale-110 blur-2xl grayscale'
             : 'scale-100 blur-0 grayscale-0',
         )}
-        onLoadingComplete={() => setLoading(false)}
+        // onLoadingComplete={() => setLoading(false)}
       />
     </div>
   );

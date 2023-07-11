@@ -88,7 +88,6 @@ export default function RootLayout({
                 }`}
                 href={link.href}
                 key={link.name}
-                prefetch={false}
               >
                 <h1>{link.name}</h1>
                 <h2>{link.title}</h2>

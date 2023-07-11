@@ -1,12 +1,12 @@
+import { createMiddlewareClient } from '@supabase/auth-helpers-nextjs';
 import { NextResponse } from 'next/server';
+
 import type { NextRequest } from 'next/server';
+import type { Database } from '@/lib/database.types';
 
-// This function can be marked `async` if using `await` inside
-export function middleware(request: NextRequest) {
-  return NextResponse.redirect(new URL('/dashboard', request.url));
+export async function middleware(req: NextRequest) {
+  const res = NextResponse.next();
+  const supabase = createMiddlewareClient<Database>({ req, res });
+  await supabase.auth.getSession();
+  return res;
 }
-
-// See "Matching Paths" below to learn more
-export const config = {
-  matcher: '/dashboard',
-};

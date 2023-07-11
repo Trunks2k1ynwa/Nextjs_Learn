@@ -1,28 +1,25 @@
-'use client';
-import photos from '@/photos';
-import Link from 'next/link';
-import LazyImage from '~/atoms/LazyImage';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { cookies } from 'next/headers';
+import BlurImage from '~/atoms/BlurImage';
 
-function OptimizationPage() {
+export async function getImages() {
+  const supabaseAdmin = createServerComponentClient({ cookies });
+  let { data: Images } = await supabaseAdmin
+    .from('Images')
+    .select('*')
+    .order('id');
+  return Images;
+}
+export default async function Page() {
+  const images = await getImages();
   return (
-    <div>
-      <div className='grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 m-10'>
-        {photos.map(({ id, imageSrc, name }) => (
-          <Link key={id} href={`/feed/photos/${id}`}>
-            <LazyImage
-              className='w-full object-cover aspect-square'
-              height={500}
-              width={500}
-              alt={name}
-              src={imageSrc}
-            />
-          </Link>
-        ))}
+    <div className='mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8'>
+      <h1 className='text-2xl text-center m-4'>Page</h1>
+
+      <div className='grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 '>
+        {images &&
+          images.map((image) => <BlurImage key={image.id} image={image} />)}
       </div>
-      <LazyImage className='object-cover' alt='Liverpool' />
-      <h1>OptimizationPage</h1>
     </div>
   );
 }
-
-export default OptimizationPage;

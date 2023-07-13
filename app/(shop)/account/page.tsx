@@ -9,7 +9,10 @@ import Link from 'next/link';
 import AddAccount from './AddAccount';
 export default async function Page() {
   const supabase = createServerComponentClient({ cookies });
-  const { data: account } = await supabase.from('account').select();
+  const { data: account } = await supabase
+    .from('account')
+    .select()
+    .match({ gender: true });
   const handleSignOut = async () => {
     'use server';
     const supabase = createServerActionClient({ cookies });

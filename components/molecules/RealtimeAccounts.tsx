@@ -29,13 +29,40 @@ const RealtimeAccounts = ({ accounts }: { accounts: any }) => {
   }, [supabase, router]);
 
   return (
-    <div>
-      {accounts?.map((account: any) => (
-        <div className='bg-black text-white p-2 my-2' key={account.id}>
-          <Account account={account} />
-        </div>
-      ))}
-    </div>
+    <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
+      <thead className='text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400e'>
+        <tr className=''>
+          <th scope='col' className='px-6 py-3'>
+            ID
+          </th>
+          <th scope='col' className='px-6 py-3'>
+            Name
+          </th>
+          <th scope='col' className='px-6 py-3'>
+            Age
+          </th>
+          <th scope='col' className='px-6 py-3'>
+            Address
+          </th>
+          <th scope='col' className='px-6 py-3'>
+            Gender
+          </th>
+          <th scope='col' className='px-6 py-3'>
+            Action
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {accounts?.map((account: any) => (
+          <tr
+            className='bg-white border-b dark:bg-gray-900 dark:border-gray-700'
+            key={account.id}
+          >
+            <Account account={account} />
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };
 

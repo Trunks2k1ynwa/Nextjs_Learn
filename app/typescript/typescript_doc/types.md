@@ -1,0 +1,12 @@
+# Các type của data trong typescript
+- boolean
+- bigint
+- null
+- number
+- string
+- symbol
+- undefined
+- any
+- unknown
+- never
+- void

@@ -2,9 +2,9 @@
 'use client';
 import Link from 'next/link';
 import './global.scss';
-import { Advent_Pro } from 'next/font/google';
 import { usePathname } from 'next/navigation';
 import StyledComponentsRegistry from '@/lib/registry';
+import { Advent_Pro } from 'next/font/google';
 
 const inter = Advent_Pro({
   subsets: ['latin'],

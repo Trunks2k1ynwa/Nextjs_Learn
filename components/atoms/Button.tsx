@@ -4,8 +4,13 @@ import { css, styled } from 'styled-components';
 
 type Props = {
   children: React.ReactNode;
-  kind?: String;
-};
+  kind?: string;
+  type?: 'button' | 'reset' | 'submit';
+  className?: string;
+} & React.DetailedHTMLProps<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+>;
 const ButtonStyle = styled.button<Props>`
   color: yellow;
   background-color: blue;
@@ -16,15 +21,25 @@ const ButtonStyle = styled.button<Props>`
   ${(props) =>
     props.kind === 'primary' &&
     css`
-      color: white;
-      background-color: pink;
+      color: black;
+      background-color: ${(props) => props.theme.primary};
       padding: 10px 10px;
       display: flex;
       height: fit-content;
     `};
 `;
-function Button({ children, kind = '' }: Props) {
-  return <ButtonStyle kind={kind}>{children}</ButtonStyle>;
+function Button({
+  children,
+  type = 'button',
+  kind,
+  className,
+  ...rest
+}: Props) {
+  return (
+    <ButtonStyle type={type} {...rest} className={className} kind={kind}>
+      {children}
+    </ButtonStyle>
+  );
 }
 
 export default Button;
